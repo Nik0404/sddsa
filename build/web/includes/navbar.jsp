@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
 
-        <img src="images-product/guitar.png" alt="" width="30" height="24" class="d-inline-block align-center">
+        <img src="images-product/music.svg" alt="" width="30" height="24" class="d-inline-block align-center">
         <a class="navbar-brand" href="index.jsp">
             Music-House
         </a>

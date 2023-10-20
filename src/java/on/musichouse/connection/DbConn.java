@@ -9,7 +9,7 @@ public class DbConn {
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         if (connection == null) {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/music-house?useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "root");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/ecommerce_music_house?useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "root");
             
             System.out.println("connected");
         }

@@ -1,9 +1,23 @@
 html,body{
     height:100%;
 }
-.carousel,.item,.active{
-    height:100%;
+.carousel-item {
+    position: relative;
+    height: 95vh;
+    background-size: cover;
+    background-position: center center;
+    background: #000;
 }
-.carousel-inner{
-    height:100%;
+
+.carousel-item img {
+    opacity: 0.5;
 }
+.carousel-item h1 {
+    position: absolute;
+    margin: 0;
+    color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
