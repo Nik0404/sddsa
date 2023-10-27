@@ -1,10 +1,12 @@
-<%-- 
-    Document   : index
-    Created on : 16 окт. 2023 г., 09:07:03
-    Author     : ЦОПП
---%>
-
+<%@page import="on.musichouse.connection.DbConn" %>
+<%@page import="on.musichouse.model.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    User auth = (User) request.getSession().getAttribute("auth");
+    if(auth != null) {
+        request.setAttribute("auth", auth);
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>

@@ -1,5 +1,8 @@
 html,body{
-    height:100%;
+    display: flex;
+    flex-direction: column;
+    background: #f0f1f2;
+    height: 100vh;
 }
 .carousel-item {
     position: relative;
@@ -21,3 +24,16 @@ html,body{
     transform: translate(-50%, -50%);
 }
 
+.btn-s {
+    background-color: transparent;
+    border-color: rgba(186, 216, 125, 0.863);
+    color: rgba(186, 216, 125, 0.863);
+    padding: 1.1vh 1.7vh;
+    height: fit-content;
+    border-radius: 3px
+}
+
+.btn:hover{
+    border-color: rgba(186, 216, 125, 0.863);
+    color: white;
+}

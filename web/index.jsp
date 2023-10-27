@@ -1,5 +1,6 @@
-<%@page import="on.musichouse.connection.DbConn" %>
+<%@page import="com.DB.DbConn" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="ru">
     <head>
@@ -45,6 +46,70 @@
             </button>
         </div>
 
+        <div class="container">
+            <h3 class="text-center mt-4">Товары</h3>
+            <div class="row">
+                <div class="col-md-3 mt-4">
+                    <div class="card text-white bg-dark">
+                        <div class="card-body text-center">
+                            <img alt="123" src="images-product/1.png" class="img-thumblin" style="width: 100px; background: none;">
+                            <p class="card-title text-capitalize">афрадита</p>
+                            <p class="text-capitalize card-text">Категории: <span class="text-success">New</span></p>
+                            <div class="row">
+                                <a class="btn-s btn">Добавить</a>
+                                <p class="text-end mt-2">7549 руб</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mt-4">
+                    <div class="card text-white bg-dark">
+                        <div class="card-body text-center">
+                            <img alt="123" src="images-product/1.png" class="img-thumblin" style="width: 100px; background: none;">
+                            <p class="card-title text-capitalize">афрадита</p>
+                            <p class="text-capitalize card-text">Категории: <span class="text-success">New</span></p>
+                            <div class="row">
+                                <a class="btn-s btn">Добавить</a>
+                                <p class="text-end mt-2">7549 руб</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mt-4">
+                    <div class="card text-white bg-dark">
+                        <div class="card-body text-center">
+                            <img alt="123" src="images-product/1.png" class="img-thumblin" style="width: 100px; background: none;">
+                            <p class="card-title text-capitalize">афрадита</p>
+                            <p class="text-capitalize card-text">Категории: <span class="text-success">New</span></p>
+                            <div class="row">
+                                <a class="btn-s btn">Добавить</a>
+                                <p class="text-end mt-2">7549 руб</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mt-4">
+                    <div class="card text-white bg-dark">
+                        <div class="card-body text-center">
+                            <img alt="123" src="images-product/1.png" class="img-thumblin" style="width: 100px; background: none;">
+                            <p class="card-title text-capitalize">афрадита</p>
+                            <p class="text-capitalize card-text">Категории: <span class="text-success">New</span></p>
+                            <div class="row">
+                                <a class="btn-s btn">Добавить</a>
+                                <p class="text-end mt-2">7549 руб</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <div class="text-center mt-4">
+                <a href="#" class="c-p btn btn-success btn-sm">Посмотреть все</a>
+            </div>
+        </div>
+
+        <div class="mt-5"></div>
+        
+       
         <%@include file="includes/footer.jsp" %>
     </body>
 </html>
