@@ -37,3 +37,7 @@ html,body{
     border-color: rgba(186, 216, 125, 0.863);
     color: white;
 }
+
+a{
+    text-decoration: none;
+}

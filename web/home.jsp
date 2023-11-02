@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    if(request.getSession().getAttribute("userObj") != null){
+    if(request.getSession().getAttribute("userObj") == null){
          response.sendRedirect("index.jsp");
     }
 %>
