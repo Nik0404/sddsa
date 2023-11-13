@@ -15,20 +15,41 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-capitalize" href="../index.jsp">о нас</a>
+                    <a class="nav-link text-capitalize" href="home.jsp">Домой</a>
                 </li>
 
                 <c:if test="${not empty userObj}">
                     <li class="nav-item btn-outline-secondary">
-                        <a class="nav-link text-capitalize text-white" href="">admin</a>
+                        <a class="nav-link text-capitalize text-white" href="home.jsp">${userObj.name}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="nav-link text-capitalize" href="#">выйти</a>
                     </li>
                 </c:if>
                 <c:if test="${empty userObj}" >
                     <li class="nav-item">
-                        <a class="nav-link text-capitalize" href="login.jsp">войти</a>
+                        <a class="nav-link text-capitalize" href="../login.jsp">войти</a>
                     </li>
                 </c:if>
             </ul>
         </div>
     </div>
 </nav>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Выйти</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h4>Вы действительно хотите выйти?</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Нет</button>
+                <a class="btn btn-primary" href="../log-out">Выйти</a>
+            </div>
+        </div>
+    </div>
+</div>

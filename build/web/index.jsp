@@ -1,5 +1,6 @@
-<%@page import="com.DB.DbConn" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -49,67 +50,53 @@
         <div class="container">
             <h3 class="text-center mt-4">Товары</h3>
             <div class="row">
+                <%
+                    ToolsDaoImpl dao = new ToolsDaoImpl(DbConn.getConnection());
+                    List<ToolsDtls> list = dao.getNewTools();
+                        
+                    for(ToolsDtls td : list) {
+                %>
                 <div class="col-md-3 mt-4">
                     <div class="card text-white bg-dark">
                         <div class="card-body text-center">
-                            <img alt="123" src="images-product/1.png" class="img-thumblin" style="width: 100px; background: none;">
-                            <p class="card-title text-capitalize">афрадита</p>
-                            <p class="text-capitalize card-text">Категории: <span class="text-success">New</span></p>
-                            <div class="row">
-                                <a class="btn-s btn">Добавить</a>
-                                <p class="text-end mt-2">7549 руб</p>
-                            </div>
+                            <a class="text-decoration-none text-white" href="view_tools.jsp?id=<%= td.getToolsId() %>">
+                                <img alt="123" src="musicTools/<%= td.getPhotoName() %>" class="img-thumblin" style="width: 100px; height: 250px; background: none;">
+                                <p class="card-title text-capitalize"><%= td.getToolsName() %></p>
+                                <p class="text-capitalize card-text">Категории:
+                                    <%if("New".equals(td.getToolsCategory())){%>
+                                    <span class="text-success"><%= td.getToolsCategory() %></span>
+                                    <%} else {%>
+                                    <span class="text-danger"><%= td.getToolsCategory() %></span>
+                                    <%}%>
+
+                                </p>
+                                <% if(u == null) {%>
+                                <div class="row mt-4">  
+                                    <p class="text-end text-danger">Авторизуйтесь</p>
+                                </div>
+                                <%} else { %>
+                                <div class="row mt-4">
+                                    <a href="" data-id="<%= td.getToolsId() %>" data-user="<%= u.getId() %>" class="btn-s btn add-cart">Добавить</a>  
+                                    <p class="text-end mt-2"><%= td.getPrice() %> руб</p>
+                                </div>
+                                <%}%>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mt-4">
-                    <div class="card text-white bg-dark">
-                        <div class="card-body text-center">
-                            <img alt="123" src="images-product/1.png" class="img-thumblin" style="width: 100px; background: none;">
-                            <p class="card-title text-capitalize">афрадита</p>
-                            <p class="text-capitalize card-text">Категории: <span class="text-success">New</span></p>
-                            <div class="row">
-                                <a class="btn-s btn">Добавить</a>
-                                <p class="text-end mt-2">7549 руб</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mt-4">
-                    <div class="card text-white bg-dark">
-                        <div class="card-body text-center">
-                            <img alt="123" src="images-product/1.png" class="img-thumblin" style="width: 100px; background: none;">
-                            <p class="card-title text-capitalize">афрадита</p>
-                            <p class="text-capitalize card-text">Категории: <span class="text-success">New</span></p>
-                            <div class="row">
-                                <a class="btn-s btn">Добавить</a>
-                                <p class="text-end mt-2">7549 руб</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mt-4">
-                    <div class="card text-white bg-dark">
-                        <div class="card-body text-center">
-                            <img alt="123" src="images-product/1.png" class="img-thumblin" style="width: 100px; background: none;">
-                            <p class="card-title text-capitalize">афрадита</p>
-                            <p class="text-capitalize card-text">Категории: <span class="text-success">New</span></p>
-                            <div class="row">
-                                <a class="btn-s btn">Добавить</a>
-                                <p class="text-end mt-2">7549 руб</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>  
-            </div>
+                <%
+                }
+                %>
+            </div>  
+
             <div class="text-center mt-4">
                 <a href="#" class="c-p btn btn-success btn-sm">Посмотреть все</a>
             </div>
         </div>
 
         <div class="mt-5"></div>
-        
-       
+
+
         <%@include file="includes/footer.jsp" %>
     </body>
 </html>

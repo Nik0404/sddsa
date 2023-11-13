@@ -24,6 +24,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.getUserPrincipal();
         try {
             String email = request.getParameter("login-email");
             String password = request.getParameter("login-password");
@@ -33,13 +34,14 @@ public class LoginServlet extends HttpServlet {
 
             if ("root@mail.ru".equals(email) && "root".equals(password)) {
                 User user = new User();
+                user.setName("Admin");
                 session.setAttribute("userObj", user);
                 response.sendRedirect("admin/home.jsp");
             } else {
                 User user = usd.userLogin(email, password);
                 if (user != null) {
                     session.setAttribute("userObj", user);
-                    response.sendRedirect("home.jsp");
+                    response.sendRedirect("login.jsp");
                 } else {
                     session.setAttribute("failedUser", "Неверный логин или пароль");
                     response.sendRedirect("login.jsp");

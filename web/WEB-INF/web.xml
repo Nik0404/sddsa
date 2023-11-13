@@ -12,6 +12,22 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>com.user.servlet.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ToolsServlet</servlet-name>
+        <servlet-class>com.admin.servlet.ToolsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditToolsServlet</servlet-name>
+        <servlet-class>com.admin.servlet.EditToolsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MusicToolsDelete</servlet-name>
+        <servlet-class>com.admin.servlet.MusicToolsDelete</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddCartServlet</servlet-name>
+        <servlet-class>com.user.servlet.AddCartServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/user-login</url-pattern>
@@ -23,5 +39,21 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/log-out</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ToolsServlet</servlet-name>
+        <url-pattern>/add_tools</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditToolsServlet</servlet-name>
+        <url-pattern>/eddit_tools</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MusicToolsDelete</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCartServlet</servlet-name>
+        <url-pattern>/addCart</url-pattern>
     </servlet-mapping>
 </web-app>

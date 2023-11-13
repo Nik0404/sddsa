@@ -15,10 +15,7 @@ import com.DAO.UserDaoImpl;
 import com.entity.User;
 import jakarta.servlet.http.HttpSession;
 
-/**
- *
- * @author ЦОПП
- */
+
 public class RegistrationServlet extends HttpServlet {
 
     @Override
