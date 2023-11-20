@@ -1,6 +1,4 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,42 +18,48 @@
                     <div class="card">
                         <div class="card-body">
                             <h3 class="text-center text-success">Ваши товары</h3>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Музыкальный инструмент</th>
-                                        <th scope="col">Бренд</th>
-                                        <th scope="col">Цена</th>
-                                        <th scope="col">Количество</th>
-                                        <th scope="col">Действие</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Музыкальный инструмент</th>
+                                            <th scope="col">Бренд</th>
+                                            <th scope="col">Цена</th>
+                                            <th scope="col">Количество</th>
+                                            <th scope="col">Действие</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                                    <%
-                                        CartDaoImpl dao = new CartDaoImpl(DbConn.getConnection());
-                                        List<Cart> cart = dao.getToolsUser(u.getId());
-                                        Double totalPrice = 0.0;
+                                        <%
+                                            CartDaoImpl dao = new CartDaoImpl(DbConn.getConnection());
+                                            List<Cart> cart = dao.getToolsUser(u.getId());
+                                            Double totalPrice = 0.0;
                                         
-                                        for(Cart c : cart){
-                                        totalPrice = c.getTotalPrice();
-                                    %>
-                                    <tr>
-                                        <th scope="row"><%=c.getToolsName()%></th>
-                                        <td><%=c.getBrend()%></td>
-                                        <td><%=c.getPrice()%> р</td>
-                                        <td><%=c.getCount()%></td> 
-                                    </tr>
-                                    <%}
-                                    %>
-                                    <tr>
-                                        <td>Общая сумма</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td><%=totalPrice%> рублей</td>
-                                    </tr>
-                                </tbody> 
-                            </table>
+                                            for(Cart c : cart){
+                                            totalPrice = c.getTotalPrice();
+                                        %>
+                                        <tr class="box-cart">
+                                            <th scope="row"><%=c.getToolsName()%></th>
+                                            <td><%=c.getBrend()%></td>
+                                            <td><%=c.getPrice()%> р</td>
+                                            <td class="quantity_cart"><%=c.getCount()%></td> 
+                                            <td>
+                                                <a href="" data-id="<%= c.getToolsId()%>" data-user="<%= c.getUserId() %>" class="btn btn-success add-cart">+</a>
+                                                <a href="" data-id="<%= c.getToolsId()%>" data-user="<%= c.getUserId() %>" class="btn btn-danger add-quantity">-</a>
+                                            </td> 
+                                        </tr>
+                                        <%}
+                                        %>
+                                        <tr>
+                                            <td>Общая сумма</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><%=totalPrice%> рублей</td>
+                                        </tr>
+                                    </tbody> 
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

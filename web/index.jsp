@@ -1,7 +1,4 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
-
 <!DOCTYPE html>
 <html lang="ru">
     <head>
@@ -60,7 +57,7 @@
                     <div class="card text-white bg-dark">
                         <div class="card-body text-center">
                             <a class="text-decoration-none text-white" href="view_tools.jsp?id=<%= td.getToolsId() %>">
-                                <img alt="123" src="musicTools/<%= td.getPhotoName() %>" class="img-thumblin" style="width: 100px; height: 250px; background: none;">
+                                <img alt="123" src="musicTools/<%= td.getPhotoName() %>" class="img-thumblin" style="max-width: 150px; height: 250px; background: none;">
                                 <p class="card-title text-capitalize"><%= td.getToolsName() %></p>
                                 <p class="text-capitalize card-text">Категории:
                                     <%if("New".equals(td.getToolsCategory())){%>

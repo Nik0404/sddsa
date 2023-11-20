@@ -140,4 +140,25 @@ public class CartDaoImpl implements CartDao {
 
         return list;
     }
+    
+    public boolean deleteCart(int id, int uId){
+        boolean f = false;
+        
+        try {
+            String sql = "delete from cart where tid=? and uid=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.setInt(2, uId);
+            
+            int i = ps.executeUpdate();
+            
+            if(i == 1) {
+                f = true;
+            }
+            
+        } catch (Exception e) {
+        }
+        
+        return f;
+    }
 }

@@ -9,13 +9,10 @@
 <%@ page import="com.entity.ToolsDtls" %>
 <%@ taglib prefix="c"  uri="jakarta.tags.core" %>
 
-<%--<c:if test="${empty userObj}">
-    <c:redirect url="login.jsp"></c:redirect>
-</c:if>--%>
 
 <% 
     User u = (User) session.getAttribute("userObj");
-    out.println(u);
+//    out.println(u); 
 %>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark vh-5">
@@ -42,17 +39,13 @@
 
                 <li class="nav-item position-relative">
                     <a class="nav-link text-capitalize" href="orders.jsp">корзина
-                        <%
-                            CartDaoImpl dao1 = new CartDaoImpl(DbConn.getConnection());
-                            int i = dao1.quntityTools(u.getId());
-                        %>
-                        <span class="position-absolute quantity_p"><%=i%></span>                             
+                                                   
                     </a>    
                 </li>
 
                 <c:if test="${not empty userObj}">
                     <li class="nav-item btn-outline-secondary">
-                        <a class="nav-link text-capitalize text-white dasdas" data-name="<%= u.getId()%>" href="">${userObj.name}</a> 
+                        <a class="nav-link text-capitalize text-white dasdas" data-name="<%= u.getId()%>" href="home.jsp">${userObj.name}</a> 
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-capitalize" href="log-out">выйти</a>

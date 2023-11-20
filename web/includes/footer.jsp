@@ -31,43 +31,79 @@
             e.preventDefault();
 
             var id = $(this).data('id');
-            var uId = $(".dasdas").data('name');
+            var uId = $(this).data('user');
+            e.preventDefault();
+            const box = $(this).closest(".box-cart");
 
             if (uId) {
                 if (cart["quantity_products_" + id + "uid_" + uId] == undefined) {
                     cart["quantity_products_" + id + "uid_" + uId] = 1;
                 } else {
                     cart["quantity_products_" + id + "uid_" + uId]++;
+                    box.find('.quantity_cart').text(cart["quantity_products_" + id + "uid_" + uId]);
                 }
-
-                localStorage.setItem('cart', JSON.stringify(cart));
-
-                sendCartData(id, uId, cart);
             }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            sendCartData(id, uId, cart);
         });
 
-//        var id = $(this).data('id');
-//        var uId = $(".dasdas").data('name');
-//        if (uId) {
-//            sendCartData(id, uId, cart);
-//        }
-
         function sendCartData(id, uId, cart) {
-            $.ajax({
-                url: '/e-commerce/addCart',
-                method: 'post',
-                dataType: 'json',
-                data: {id: id, uid: uId, count: cart["quantity_products_" + id + "uid_" + uId]},
-                success: function (data) {
-                    for (var key in data) {
-                        $('.quantity_p').text(data[key]);
-
+            if (id && uId) {
+                $.ajax({
+                    url: '/e-commerce/addCart',
+                    method: 'post',
+                    dataType: 'json',
+                    data: {id: id, uid: uId, count: cart["quantity_products_" + id + "uid_" + uId]},
+                    success: function (data) {
+                        console.log('Cart data sent successfully');
+                    },
+                    error: function (error) {
+                        console.log('Error sending cart data');
                     }
-                },
-                error: function (error) {
-                    console.log(error);
-                }
-            });
+                });
+            }
         }
+
+        function removeCartData(id,uId, count, box) {
+            if (id) {
+                $.ajax({
+                    url: '/e-commerce/removeCart',
+                    method: 'get',
+                    dataType: 'html',
+                    data: {id: id, uid: uId, count: count},
+                    success: function (data) {
+                        console.log('Cart data removed successfully');
+                        console.log(data);
+                        if (data) {
+                            box.remove();
+                        }
+                    },
+                    error: function (error) {
+                        console.log('Error removing cart data');
+                    }
+                });
+            }
+        }
+
+        $('.add-quantity').click(function (e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            var uId = $(this).data('user');
+            const box = $(this).closest(".box-cart");
+
+            if (cart["quantity_products_" + id + "uid_" + uId] == undefined) {
+                cart["quantity_products_" + id + "uid_" + uId] = 1;
+            } else {
+                cart["quantity_products_" + id + "uid_" + uId]--;
+                box.find('.quantity_cart').text(cart["quantity_products_" + id + "uid_" + uId]);
+                if (cart["quantity_products_" + id + "uid_" + uId] == 0) {
+                    removeCartData(id, uId, cart["quantity_products_" + id + "uid_" + uId], box);
+                }
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+        });
     });
 </script>

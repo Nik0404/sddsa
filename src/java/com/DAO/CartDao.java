@@ -13,4 +13,6 @@ public interface CartDao {
     public int quntityTools(int uid);
     
     public List<Cart> getToolsUser(int userId);
+    
+    public boolean deleteCart(int id, int uId);
 }

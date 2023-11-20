@@ -29,9 +29,9 @@ public class AddCartServlet extends HttpServlet {
 
             CartDaoImpl car_dao = new CartDaoImpl(DbConn.getConnection());
             Cart existingCartItem = car_dao.getCartItemByIdAndUserId(id, uId);
-//            int i_tools = car_dao.quntityTools(uId);
-//            String jsonData = String.format("{ \"count\": \"%s\"}", i_tools);
-//            response.getWriter().write(jsonData);
+            int i_tools = car_dao.quntityTools(uId);
+            String jsonData = String.format("{ \"count\": \"%s\"}", i_tools);
+            response.getWriter().write(jsonData);
 
             if (existingCartItem != null) {
                 existingCartItem.setCount(count);

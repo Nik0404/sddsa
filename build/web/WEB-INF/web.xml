@@ -28,6 +28,10 @@
         <servlet-name>AddCartServlet</servlet-name>
         <servlet-class>com.user.servlet.AddCartServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RemoveCartDeleteServlet</servlet-name>
+        <servlet-class>com.user.servlet.RemoveCartDeleteServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/user-login</url-pattern>
@@ -55,5 +59,9 @@
     <servlet-mapping>
         <servlet-name>AddCartServlet</servlet-name>
         <url-pattern>/addCart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveCartDeleteServlet</servlet-name>
+        <url-pattern>/removeCart</url-pattern>
     </servlet-mapping>
 </web-app>

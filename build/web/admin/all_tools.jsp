@@ -13,7 +13,7 @@
     </head>
     <body>
         <%@include file="navbar.jsp" %>
-         <c:if test="${empty userObj}">
+        <c:if test="${empty userObj}">
             <c:redirect url="../login.jsp" />
         </c:if>
 
@@ -27,46 +27,48 @@
             <p class="text-center text-danger">${failedMsg}</p>
             <c:remove var="failedMsg" scope="session"/>
         </c:if>
-        <table class="table">
-            <thead class="bg-black text-white">
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Фотография</th>
-                    <th scope="col">Музыкальные инстурменты</th>
-                    <th scope="col">Бренд</th>
-                    <th scope="col">Цена</th>
-                    <th scope="col">Категория</th>
-                    <th scope="col">Статус</th>
-                    <th scope="col">Действие</th>
-                </tr>
-            </thead>
-            <tbody>
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="bg-black text-white">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Фотография</th>
+                        <th scope="col">Музыкальные инстурменты</th>
+                        <th scope="col">Бренд</th>
+                        <th scope="col">Цена</th>
+                        <th scope="col">Категория</th>
+                        <th scope="col">Статус</th>
+                        <th scope="col">Действие</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                <%
-                    ToolsDaoImpl dao = new ToolsDaoImpl(DbConn.getConnection());
-                    List<ToolsDtls> list = dao.getAllTools();
+                    <%
+                        ToolsDaoImpl dao = new ToolsDaoImpl(DbConn.getConnection());
+                        List<ToolsDtls> list = dao.getAllTools();
                     
-                    for(ToolsDtls td : list) {%>
-                <tr>
-                    <th><%= td.getToolsId() %></th>
-                    <td><img src="../musicTools/<%= td.getPhotoName()%>" style="width: 40px; height: 70px;"></td>
-                    <td><%= td.getToolsName() %></td>
-                    <td><%= td.getBrend() %></td>
-                    <td><%= td.getPrice() %></td>
-                    <td><%= td.getToolsCategory() %></td>
-                    <td><%= td.getStatus() %></td>
-                    <td>
-                        <a href="edit_tools.jsp?id=<%=td.getToolsId() %>" class="btn btn-sm btn-sm btn-primary">Редактировать</a>
-                        <a href="../delete?id=<%=td.getToolsId() %>" class="btn btn-sm btn-sm btn-danger">Удалить</a>
-                    </td>
+                        for(ToolsDtls td : list) {%>
+                    <tr>
+                        <th><%= td.getToolsId() %></th>
+                        <td><img src="../musicTools/<%= td.getPhotoName()%>" style="width: 40px; height: 70px;"></td>
+                        <td><%= td.getToolsName() %></td>
+                        <td><%= td.getBrend() %></td>
+                        <td><%= td.getPrice() %></td>
+                        <td><%= td.getToolsCategory() %></td>
+                        <td><%= td.getStatus() %></td>
+                        <td>
+                            <a href="edit_tools.jsp?id=<%=td.getToolsId() %>" class="btn btn-sm btn-sm btn-primary">Редактировать</a>
+                            <a href="../delete?id=<%=td.getToolsId() %>" class="btn btn-sm btn-sm btn-danger">Удалить</a>
+                        </td>
 
-                </tr>
-                <%    
-                }
-                %>
+                    </tr>
+                    <%    
+                    }
+                    %>
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
         <%@include file="footer.jsp" %>
     </body>
 </html>
