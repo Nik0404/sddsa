@@ -39,7 +39,7 @@
                                             for(Cart c : cart){
                                             totalPrice = c.getTotalPrice();
                                         %>
-                                        <tr class="box-cart">
+                                        <tr class="box-cart" data-id="<%= c.getToolsId()%>" data-user="<%= c.getUserId() %>">
                                             <th scope="row"><%=c.getToolsName()%></th>
                                             <td><%=c.getBrend()%></td>
                                             <td><%=c.getPrice()%> р</td>

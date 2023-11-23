@@ -41,7 +41,7 @@ public class CartDaoImpl implements CartDao {
     @Override
     public Cart getCartItemByIdAndUserId(int id, int uId) {
         Cart c = null;
-        int totalPrice = 0;
+        
 
         try {
             String sql = "select * from cart where tid=? and uid=?";

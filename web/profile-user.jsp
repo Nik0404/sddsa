@@ -23,16 +23,18 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h4 class="text-right">Profile Settings</h4>
                         </div>
-                        <div class="row mt-2">
-                            <div class="col-md-6"><label class="labels">Логин</label><input type="text" class="form-control" placeholder="Ваш логин" value=""></div>
-                            <div class="col-md-6"><label class="labels">Email</label><input type="email" class="form-control" placeholder="Ваш email" value=""></div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-12 mb-1"><label class="labels">Номер телефона</label><input type="number" class="form-control" placeholder="Ваш номер телефона" value=""></div>
-                            <div class="col-md-12 mb-1"><label class="labels">Регион</label><input type="text" class="form-control" placeholder="Ваш регион" value=""></div>
-                            <div class="col-md-12 mb-1"><label class="labels">Город</label><input type="text" class="form-control" placeholder="Ваш город" value=""></div>
-                            <div class="col-md-12"><label class="labels">Адрес</label><input type="text" class="form-control" placeholder="Ваш адрес" value=""></div>
-                        </div>
+                        <form action="../edit-profileUser" method="post">
+                            <div class="row mt-2">
+                                <div class="col-md-6"><label class="labels">Логин</label><input type="text" class="form-control" placeholder="Ваш логин" value=""></div>
+                                <div class="col-md-6"><label class="labels">Email</label><input type="email" class="form-control" placeholder="Ваш email" value=""></div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-12 mb-1"><label class="labels">Номер телефона</label><input type="number" class="form-control" placeholder="Ваш номер телефона" value=""></div>
+                                <div class="col-md-12 mb-1"><label class="labels">Регион</label><input type="text" class="form-control" placeholder="Ваш регион" value=""></div>
+                                <div class="col-md-12 mb-1"><label class="labels">Город</label><input type="text" class="form-control" placeholder="Ваш город" value=""></div>
+                                <div class="col-md-12"><label class="labels">Адрес</label><input type="text" class="form-control" placeholder="Ваш адрес" value=""></div>
+                            </div>
+                        </form>
                         <div class="mt-4 text-center"><button class="btn btn-primary profile-button" type="button">Сохранить</button></div>
                     </div>
                 </div>
@@ -45,6 +47,6 @@
             </div>
         </div>
 
-          <%@include file="includes/footer.jsp" %>
+        <%@include file="includes/footer.jsp" %>
     </body>
 </html>

@@ -16,34 +16,56 @@
             ride: 'carousel',
             wrap: false
         });
-    });
-</script>
+    });</script>
 
 <script type="text/javascript">
     $(function () {
+        var id = $(".box-cart").data("id");
+        var uId = $(".box-cart").data('user');
+        var cart = {};
         if (localStorage.getItem('cart')) {
             var cart = JSON.parse(localStorage.getItem('cart'));
+            setLocalStorage(id, uId);
         } else {
-            var cart = {};
+            setLocalStorage(id, uId);
+        }
+
+        function setLocalStorage(id, uId) {
+            $.ajax({
+                url: '/e-commerce/count',
+                method: 'get',
+                dataType: 'json',
+                data: {id: id, uid: uId},
+                success: function (data) {
+                    console.log(data);
+                    data.forEach(function (post) {
+                        cart["quantity_products_" + post.toolsId + "uid_" + post.userId] = post.count;
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        console.log(post.toolsId);
+                    });
+
+                },
+                error: function (error) {
+                    console.log('Error sending cart data');
+                }
+            });
         }
 
         $('.add-cart').click(function (e) {
             e.preventDefault();
-
             var id = $(this).data('id');
             var uId = $(this).data('user');
-            e.preventDefault();
-            const box = $(this).closest(".box-cart");
 
+            console.log(111 + " " + cart["quantity_products_" + id + "uid_" + uId]);
+            const box = $(this).closest(".box-cart");
             if (uId) {
-                if (cart["quantity_products_" + id + "uid_" + uId] == undefined) {
+                if (cart["quantity_products_" + id + "uid_" + uId] === undefined) {
                     cart["quantity_products_" + id + "uid_" + uId] = 1;
                 } else {
                     cart["quantity_products_" + id + "uid_" + uId]++;
                     box.find('.quantity_cart').text(cart["quantity_products_" + id + "uid_" + uId]);
                 }
             }
-
             localStorage.setItem('cart', JSON.stringify(cart));
 
             sendCartData(id, uId, cart);
@@ -66,8 +88,9 @@
             }
         }
 
-        function removeCartData(id,uId, count, box) {
+        function removeCartData(id, uId, count, box) {
             if (id) {
+                delete cart["quantity_products_" + id + "uid_" + uId];
                 $.ajax({
                     url: '/e-commerce/removeCart',
                     method: 'get',
@@ -104,6 +127,8 @@
             }
 
             localStorage.setItem('cart', JSON.stringify(cart));
+
+            sendCartData(id, uId, cart);
         });
     });
 </script>
