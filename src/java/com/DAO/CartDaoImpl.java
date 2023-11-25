@@ -128,9 +128,9 @@ public class CartDaoImpl implements CartDao {
                 c.setUserId(rs.getInt(3));
                 c.setToolsName(rs.getString(4));
                 c.setBrend(rs.getString(5));
-                c.setPrice(rs.getDouble(6) * rs.getInt(7));
+                c.setPrice(rs.getDouble(6));
                 c.setCount(rs.getInt(7));
-                totalPrice += c.getPrice();
+                totalPrice += c.getPrice()  * rs.getInt(7);
                 c.setTotalPrice(totalPrice);
 
                 list.add(c);

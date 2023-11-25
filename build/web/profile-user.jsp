@@ -19,7 +19,7 @@
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://pixelbox.ru/wp-content/uploads/2021/03/ava-instagram-4.jpg"><span class="font-weight-bold">User</span><span class="text-black-50">User@mail.ru</span><span> </span></div>
                 </div>
                 <div class="col-md-5 border-right">
-                    <div class="p-3 py-5">
+                    <div class="p-3 py-2">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h4 class="text-right">Profile Settings</h4>
                         </div>
@@ -34,16 +34,18 @@
                                 <div class="col-md-12 mb-1"><label class="labels">Город</label><input type="text" class="form-control" placeholder="Ваш город" value=""></div>
                                 <div class="col-md-12"><label class="labels">Адрес</label><input type="text" class="form-control" placeholder="Ваш адрес" value=""></div>
                             </div>
-                        </form>
-                        <div class="mt-4 text-center"><button class="btn btn-primary profile-button" type="button">Сохранить</button></div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="p-3 py-5">
+                    <div class="p-3 py-1">
                         <div class="col-md-12 mb-2"><label class="labels">Пароль</label><input type="password" class="form-control" placeholder="Ваш пароль" value=""></div>
                         <div class="col-md-12"><label class="labels">Повторите пароль</label><input type="password" class="form-control" placeholder="Ваш пароль" value=""></div>
                     </div>
                 </div>
+                <div class="mt-4 text-center">
+                    <button class="btn btn-primary profile-button" type="submit">Сохранить</button>
+                </div>
+                </form>
             </div>
         </div>
 

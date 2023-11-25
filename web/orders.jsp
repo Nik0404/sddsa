@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="card">
+                    <div class="card mt-2">
                         <div class="card-body">
                             <h3 class="text-center text-success">Данные для доставки</h3>
                             <form>
