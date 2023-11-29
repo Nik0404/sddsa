@@ -153,7 +153,7 @@ public class ToolsDaoImpl implements ToolsDao {
         ToolsDtls td = null;
 
         try {
-            String sql = "select * from tools_dtls";
+            String sql = "SELECT * FROM tools_dtls ORDER BY toolsCategory ASC";
             PreparedStatement ps = conn.prepareStatement(sql);
 //            ps.setString(1, "Old");
 //            ps.setString(2, "Inactive");

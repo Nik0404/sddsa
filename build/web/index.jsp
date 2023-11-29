@@ -46,6 +46,28 @@
 
         <div class="container">
             <h3 class="text-center mt-4">Товары</h3>
+            <div class="d-flex p-1">    
+                <div class="dropdown ml-5">
+                    <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        Упорядочить товары
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">По цене</a></li>
+                        <li><a class="dropdown-item" href="#">По наименованию</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown ms-2">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        Категории товара
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Струнные</a></li>
+                        <li><a class="dropdown-item" href="#">Клавишные смычковые</a></li>
+                    </ul>
+                </div>
+            </div>
             <div class="row">
                 <%
                     ToolsDaoImpl dao = new ToolsDaoImpl(DbConn.getConnection());
